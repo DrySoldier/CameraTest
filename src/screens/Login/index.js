@@ -5,6 +5,7 @@ import {
 	ImageBackground,
 	Text,
 	KeyboardAvoidingView,
+	Platform
 } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import TextField from 'src/components/TextField';
@@ -35,7 +36,7 @@ const Login = ({ navigation }) => {
 		<ImageBackground source={loginBackground} style={styles.container}>
 			<KeyboardAvoidingView
 				style={styles.keyboardAvoidingContainer}
-				behavior="padding">
+				behavior={Platform.OS === 'ios' ? "padding" : "height"}>
 				<View style={styles.logoContainer}>
 					<FastImage style={styles.logo} resizeMode="contain" source={logo} />
 					<Text style={styles.logoSubheader}>TEST APP</Text>

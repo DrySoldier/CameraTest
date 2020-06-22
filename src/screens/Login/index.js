@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
 	View,
 	TouchableOpacity,
@@ -16,6 +16,21 @@ const phoneIcon = require('src/assets/phone-icon.png');
 const lockIcon = require('src/assets/lock-icon.png');
 
 const Login = ({ navigation }) => {
+	const [phone, setPhone] = useState('');
+	const [password, setPassword] = useState('');
+	const [error, setError] = useState('');
+
+	const handleLogin = () => {
+		const regex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+		if (phone === '' || password === '') {
+			setError('Field is empty!');
+		} else if (!regex.test(phone)) {
+			setError('Invalid phone number!');
+		} else {
+			navigation.navigate('Main');
+		}
+	};
+
 	return (
 		<ImageBackground source={loginBackground} style={styles.container}>
 			<KeyboardAvoidingView
@@ -26,12 +41,30 @@ const Login = ({ navigation }) => {
 					<Text style={styles.logoSubheader}>TEST APP</Text>
 				</View>
 				<View style={{ alignItems: 'center' }}>
-					<TextField placeholder="Phone" icon={phoneIcon} />
-					<TextField placeholder="Password" icon={lockIcon} />
+					<Text style={{ color: 'red', margin: 5 }}>{error}</Text>
+					<TextField
+						onChangeText={(text) => {
+							setError('');
+							setPhone(text);
+						}}
+						value={phone}
+						placeholder="Phone"
+						icon={phoneIcon}
+						maxLength={15}
+					/>
+					<TextField
+						onChangeText={(text) => {
+							setError('');
+							setPassword(text);
+						}}
+						value={password}
+						placeholder="Password"
+						icon={lockIcon}
+					/>
 				</View>
 				<TouchableOpacity
 					style={styles.loginButton}
-					onPress={() => navigation.navigate('Main')}>
+					onPress={() => handleLogin()}>
 					<Text style={styles.loginTextLabel}>Login</Text>
 				</TouchableOpacity>
 			</KeyboardAvoidingView>

@@ -5,8 +5,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import HomeStack from './HomeStack';
 
-const cameraIcon = require('../assets/camera-icon.png');
-const archiveIcon = require('../assets/archive-icon.png');
+const cameraIcon = require('src/assets/camera-icon.png');
+const archiveIcon = require('src/assets/archive-icon.png');
 
 const CameraLoader = () => <View />;
 

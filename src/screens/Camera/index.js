@@ -11,8 +11,8 @@ import { RNCamera } from 'react-native-camera';
 
 import styles from './styles';
 
-const XIcon = require('../../assets/x-icon.png');
-const overlay = require('../../assets/overlay.png');
+const XIcon = require('src/assets/x-icon.png');
+const overlay = require('src/assets/overlay.png');
 
 const Camera = ({ navigation }) => {
 	const camera = useRef();

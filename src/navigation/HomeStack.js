@@ -8,7 +8,7 @@ import FastImage from 'react-native-fast-image';
 
 const { width, height } = Dimensions.get('window');
 
-const avatar = require('../assets/avatar.png');
+const avatar = require('src/assets/avatar.png');
 
 const Stack = createStackNavigator();
 

@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
     alignItems: 'center',
     backgroundColor: '#232F3A',
-    paddingVertical: height * 0.2,
+	  paddingVertical: height * 0.2,
   },
 });
 

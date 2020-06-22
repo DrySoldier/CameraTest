@@ -1,0 +1,6 @@
+module Pods_CourierApp {
+  umbrella header "Pods-CourierApp-umbrella.h"
+
+  export *
+  module * { export * }
+}

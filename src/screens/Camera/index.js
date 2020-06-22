@@ -11,14 +11,14 @@ import { RNCamera } from 'react-native-camera';
 
 import styles from './styles';
 
-const X = require('../../assets/x-icon.png');
+const XIcon = require('../../assets/x-icon.png');
 const overlay = require('../../assets/overlay.png');
 
 const Camera = ({ navigation }) => {
 	const camera = useRef();
 	const takePicture = async () => {
 		if (camera.current) {
-			console.log(camera.current)
+			console.log(camera.current);
 			const options = { quality: 0.5, base64: true };
 			const data = await camera.current.takePictureAsync(options);
 			console.log(data.uri);
@@ -75,9 +75,9 @@ const Camera = ({ navigation }) => {
 			</RNCamera>
 			<FastImage source={overlay} style={styles.container} />
 			<TouchableOpacity
-				style={styles.XContainer}
+				style={styles.XIconContainer}
 				onPress={() => navigation.navigate('Home')}>
-				<FastImage style={styles.X} source={X} />
+				<FastImage style={styles.XIcon} source={XIcon} />
 			</TouchableOpacity>
 			<View style={styles.centerButtonContainer}>
 				<View style={styles.outerButton}>

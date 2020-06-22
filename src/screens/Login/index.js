@@ -7,20 +7,20 @@ import {
 	KeyboardAvoidingView,
 } from 'react-native';
 import FastImage from 'react-native-fast-image';
-import TextField from './components/TextField';
+import TextField from 'src/components/TextField';
 import styles from './styles';
 
-const loginBackground = require('../../assets/login-background.png');
-
-const logo = require('../../assets/logo.png');
-
-const phoneIcon = require('../../assets/phone-icon.png');
-const lockIcon = require('../../assets/lock-icon.png');
+const loginBackground = require('src/assets/login-background.png');
+const logo = require('src/assets/logo.png');
+const phoneIcon = require('src/assets/phone-icon.png');
+const lockIcon = require('src/assets/lock-icon.png');
 
 const Login = ({ navigation }) => {
 	return (
 		<ImageBackground source={loginBackground} style={styles.container}>
-			<KeyboardAvoidingView style={styles.keyboardAvoidingContainer} behavior="padding">
+			<KeyboardAvoidingView
+				style={styles.keyboardAvoidingContainer}
+				behavior="padding">
 				<View style={styles.logoContainer}>
 					<FastImage style={styles.logo} resizeMode="contain" source={logo} />
 					<Text style={styles.logoSubheader}>TEST APP</Text>

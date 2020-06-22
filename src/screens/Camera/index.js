@@ -18,10 +18,10 @@ const Camera = ({ navigation }) => {
 	const camera = useRef();
 	const takePicture = async () => {
 		if (camera.current) {
-			console.log(camera.current);
 			const options = { quality: 0.5, base64: true };
 			const data = await camera.current.takePictureAsync(options);
-			console.log(data.uri);
+			// Save to camera roll using react-native-cameraroll
+			console.log(data);
 		}
 	};
 
@@ -44,9 +44,6 @@ const Camera = ({ navigation }) => {
 					message: 'We need your permission to use your audio',
 					buttonPositive: 'Ok',
 					buttonNegative: 'Cancel',
-				}}
-				onGoogleVisionBarcodesDetected={({ barcodes }) => {
-					console.log(barcodes);
 				}}>
 				{({ status }) => {
 					if (status === 'NOT_AUTHORIZED') {
